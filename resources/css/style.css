@@ -1,6 +1,20 @@
+/* "Tamming" Box Model With Reset */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Universal Styles */
+
 html {
   font-size: 18px;
-  font-family: Helvetica, sans-serif;
+}
+
+body {
+  font-family: "Helvetica", sans-serif;
   color: white;
 }
 
@@ -75,48 +89,38 @@ nav {
 
 /* Product Styles */
 
-.catalog {
-  display: flex;
-  justify-content: space-between;
-  margin: 3rem auto;
-}
-
-.product {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30%;
-  border: 4px solid black;
-  text-align: center;
-  overflow: hidden;
-}
-
-.product-image {
-  padding: 2rem;
-}
-
-.product-image .sunglasses {
-  margin-top: 2rem;
-  width: 99%;
-  height: auto;
-}
-
-.product img {
-  height: 9rem;
-}
-
-.product-title {
-  background-color: black;
-  padding: 0.5rem 0rem;
-}
-
-/* Store Info Styles */
-
+.catalog,
 .store-info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 4rem;
+  margin-top: 3rem;
 }
+
+.product {
+  width: 30%;
+}
+
+.product-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid black;
+  padding: 2rem 0;
+  height: 9rem;
+}
+
+.product-image img {
+  max-width: 8rem;
+}
+
+.product-title {
+  display: block;
+  background-color: black;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+/* Store Info Styles */
 
 .location,
 .hours {
@@ -137,7 +141,7 @@ p.details {
 footer {
   display: flex;
   align-items: center;
-  height: 5rem;
+  padding: 5rem 0;
   background-color: black;
 }
 
@@ -155,7 +159,7 @@ footer {
     display: none;
   }
 
-  .glasses {
+  .product.glasses {
     display: none;
   }
 
@@ -167,9 +171,10 @@ footer {
 @media only screen and (max-width: 470px) {
 
   .catalog {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    margin: 3rem auto;
+    margin: 3rem auto; */
+    flex-wrap: wrap;
   }
 
   .container {
@@ -177,12 +182,13 @@ footer {
     margin: 0 auto;
   }
 
-  .watch {
+  .product.watch {
     display: none;
   }
 
   .product {
     width: 90%;
+    margin: auto;
   }
 
   .banner {
@@ -190,11 +196,9 @@ footer {
   }
 
   .banner-title {
-    background-color: black;
-    width: 20rem;
     padding: 1rem 2rem;
-    position: relative;
     top: 10rem;
+    width: 100%;
   }
 
   .sub-title {
@@ -208,17 +212,18 @@ footer {
   }
 
   .store-info {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     /* justify-content: center; */
-    align-items: center;
-    margin-bottom: 4rem;
+    /* align-items: center;
+    margin-bottom: 4rem; */
+    flex-wrap: wrap;
   }
 
   .location,
   .hours {
     width: 90%;
-    padding-bottom: 0.5rem;
+    margin: 0.5rem auto;
   }
 
   footer {
